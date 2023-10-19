@@ -1,0 +1,22 @@
+{
+	"products": [{
+			"ProductId": "1",
+			"ProductName": "Name1", 
+			"Category": "Category1",
+			"Price": "100"
+		},
+			{
+			"ProductId": "2",
+			"ProductName": "Name2", 
+			"Category": "Category2",
+			"Price": "120"
+		
+		},
+			{
+			"ProductId": "3",
+			"ProductName": "Name3", 
+			"Category": "Category3",
+			"Price": "140"
+		
+		}
+            ]}

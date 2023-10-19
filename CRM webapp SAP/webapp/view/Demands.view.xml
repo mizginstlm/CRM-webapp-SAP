@@ -1,0 +1,97 @@
+<mvc:View
+    busy="{main>/busy}"
+    controllerName="mozos.customername.projectname.controller.Demands"
+    xmlns:semantic="sap.m.semantic"
+    xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:card="sap.f.cards"
+    xmlns:t="sap.ui.table"
+    xmlns:l="sap.ui.layout"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+>
+    <Panel id="page"  busy="{main>/busy}">
+
+
+   
+        <content>
+            <Table class="showList" id="showList"
+                mode="SingleSelectMaster"
+                selectionChange="handleSelectionChange"
+                items="{
+                    path: 'main>/showList'}"
+                itemPress=".onDetailPress($event)"
+                growing="true" busyIndicatorDelay="0" width="auto"
+            >
+                <headerToolbar />
+                <columns>
+                    <Column id="_IDGenColumn2" vAlign="Middle" hAlign="Center" width="6rem">
+                        <Text id="_IDGenText2" class="sapThemeFont" text="Firma Adı" />
+                    </Column>
+                    <Column id="_IDGenColumn8" vAlign="Middle" hAlign="Center" width="6rem">
+                        <Text id="_IDGenText8" class="sapThemeFont" text="Rol " />
+                    </Column>
+                    <Column id="_IDGenColumn3" vAlign="Middle" hAlign="Center" width="6rem">
+                        <Text id="_IDGenText3" class="sapThemeFont" text="Kaynak" />
+                    </Column>
+                    <Column id="_IDGenColumn4" vAlign="Middle" hAlign="Center" width="6rem">
+                        <Text id="_IDGenText4" class="sapThemeFont" text="Eposta" />
+                    </Column>
+                    <Column id="_IDGenColumn9" vAlign="Middle" hAlign="Center" width="6rem">
+                        <Text id="_IDGenText9" class="sapThemeFont" text="Telefonu" />
+                    </Column>
+                    <Column  vAlign="Middle" hAlign="Center" width="6rem">
+                        <Text class="sapThemeFont" text="Sektör" />
+                    </Column>
+                    <Column  vAlign="Middle" hAlign="Center" width="6rem">
+                        <Text class="sapThemeFont" text="Alt Sektör" />
+                    </Column>
+                    <Column  vAlign="Middle" hAlign="Center" width="6rem">
+                        <Text class="sapThemeFont" text="Sorumlu" />
+                    </Column>
+                    <Column  vAlign="Middle" hAlign="Center" width="6rem">
+                        <Text class="sapThemeFont" text="Kamu" />
+                    </Column>
+                    <Column id="_IDGenColumnDelete" vAlign="Middle" hAlign="Center" width="3rem">
+                        <Text id="_IDGenTextDelete" class="sapThemeFont" text="" />
+                    </Column>
+                    <Column id="_IDGenColumnEdit" vAlign="Middle" hAlign="End" width="3rem">
+                        <Text id="_IDGenTextEdit" class="sapThemeFont"  />
+                    </Column>
+                   
+
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle" type="Navigation" id="entitlementColumnListItem">
+                        <!-- <customData>
+                        <core:CustomData key="mydata" value="{mainModel>Stat}" writeToDom="true"></core:CustomData>
+                    </customData> -->
+                        <cells>
+
+                            <ObjectAttribute id="_IDGenObjectAttribute1" text="{main>namesurname}" />
+                            <ObjectAttribute id="_IDGenObjectAttribute2" text="{main>rol}" />
+                            <ObjectAttribute id="_IDGenObjectAttribute3" text="{main>source}" />
+                            <ObjectAttribute id="_IDGenObjectAttribute4" text="{main>mail}" />
+                            <ObjectAttribute id="_IDGenObjectAttribute5" text="{main>phone}" />
+                            <ObjectAttribute  text="{main>sktxtc}" />
+                            <ObjectAttribute  text="{main>sksubtxt}" />
+                                <ObjectAttribute  text="{main>responsible}" />
+
+                            <ObjectAttribute id="_IDGenObjectAttribute6" text="{main>kamutext}" />
+                            <Button id="_IDGenButton2" icon="sap-icon://delete" press="onDeleteRowPress(${main>})" />
+                            <Button id="_IDGenButton3" icon="sap-icon://edit" press="onEditRowPress(${main>})"  />
+
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        
+
+    </Panel>
+</mvc:View>

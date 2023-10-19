@@ -1,0 +1,235 @@
+<mvc:View xmlns:core="sap.ui.core"
+	busy="{main>/busy}"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.uxap"
+	xmlns:layout="sap.ui.layout"
+	xmlns:m="sap.m"
+	xmlns:si="sap.suite.ui.commons.statusindicator"
+	xmlns:blockcolor="sap.uxap.sample.SharedBlocks"
+	controllerName="mozos.customername.projectname.controller.DetailedCustomer"
+	height="100%">
+	<ObjectPageLayout id="ObjectPageLayout"
+		enableLazyLoading="true"
+		useIconTabBar="true"
+		showTitleInHeaderContent="true"
+		upperCaseAnchorBar="false"
+		busy="{main>/busy}"
+		selectedSection="{main>/selectedSection}"
+	>
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle id="_IDGenObjectPageDynamicHeaderTitle1">
+				<expandedHeading>
+					<m:Title id="namesurname" text="{main>/showCustomerInput/namesurname}"
+						wrapping="true" />
+				</expandedHeading>
+
+				<snappedHeading>
+					<m:FlexBox id="_IDGenFlexBox1" fitContainer="true" alignItems="Center">
+						<m:Avatar id="_IDGenAvatar1"
+							src="./test-resources/sap/m/images/imageID_275314.png"
+							class="sapUiTinyMarginEnd" />
+						<m:Title id="_IDGenTitle2" text="{main>/showCustomerInput/namesurname}"
+							wrapping="true" />
+					</m:FlexBox>
+				</snappedHeading>
+
+				<expandedContent>
+					<m:Text id="_IDGenText1" text="{main>/showCustomerInput/rol}" />
+				</expandedContent>
+
+				<snappedContent>
+					<m:Text id="_IDGenText2" text="{main>/showCustomerInput/rol}" />
+				</snappedContent>
+
+				<snappedTitleOnMobile>
+					<m:Title id="_IDGenTitle3" text="{main>/showCustomerInput/rol}" />
+				</snappedTitleOnMobile>
+
+				<!-- <actions>
+					<m:Button id="_IDGenButton1" text="Edit" type="Emphasized"
+						press="onEditRowPress(${main>})" />
+					<m:Button id="_IDGenButton2" type="Transparent" text="Delete"
+						press="onDeleteRowPress(${main>})" />
+				</actions> -->
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+
+		<headerContent>
+			<m:FlexBox id="_IDGenFlexBox2" wrap="Wrap" fitContainer="true" alignContent="Center">
+				<m:Avatar id="_IDGenAvatar2" class="sapUiSmallMarginEnd" src="./test-resources/sap/uxap/images/imageID_275314.png" displaySize="L" />
+				<layout:VerticalLayout id="_IDGenVerticalLayout1" class="sapUiSmallMarginBeginEnd">
+					<layout:HorizontalLayout >
+						<m:Text text="Telefon:" />
+						<m:Label id="_IDGenLink1" text="{main>/showCustomerInput/phone}" />
+					</layout:HorizontalLayout>
+					<layout:HorizontalLayout >
+						<m:Text text="E-mail:  " />
+						<m:Label id="_IDGenLink2" text="{main>/showCustomerInput/mail}" />
+					</layout:HorizontalLayout>
+					<layout:HorizontalLayout>
+						<m:Text text="Sektör:  " />
+						<m:Label id="_IDGenLabel1" text="{main>/showCustomerInput/sktxtc}" />
+					</layout:HorizontalLayout>
+					<layout:HorizontalLayout>
+						<m:Text text="Alt Sektör:" />
+						<m:Label id="_IDGenLabel2" text="{main>/showCustomerInput/sksubtxt}" />
+					</layout:HorizontalLayout>
+				</layout:VerticalLayout>
+				<!--
+				<layout:HorizontalLayout id="_IDGenHorizontalLayout1"
+					class="sapUiSmallMarginBeginEnd">
+					<m:Image id="_IDGenImage1" src="./test-resources/sap/uxap/images/linkedin.png" />
+					<m:Image id="_IDGenImage2" src="./test-resources/sap/uxap/images/Twitter.png"
+						class="sapUiSmallMarginBegin" />
+				</layout:HorizontalLayout> -->
+
+
+				<layout:VerticalLayout id="_IDGenVerticalLayout3" class="sapUiSmallMarginBeginEnd">
+					<m:Label id="_IDGenLabel3" text="{main>/showCustomerInput/source}" />
+				</layout:VerticalLayout>
+
+
+				<layout:VerticalLayout id="_IDGenVerticalLayout2" class="sapUiLargeMarginBeginEnd">
+					<m:FlexBox id="_IDGenFlexBox3" direction="Column">
+						<m:Label id="_IDGenLabel5" text="Tamamlanma Yüzdesi"></m:Label>
+						<m:ComboBox id="sourceId" width="50%"
+							items="{main>/sendPercant}"
+							selectedKey="MultiToggle"
+							change="valueChanged">
+							<core:Item id="sourceItem" key="{main>key}"
+								text="{main>value}" />
+						</m:ComboBox>
+						<si:StatusIndicator id="indicator31" width="200px" height="30px"
+							value="0">
+							<si:ShapeGroup id="_IDGenShapeGroup1">
+								<si:Rectangle id="_IDGenRectangle1" x="0" y="0" width="200px"
+									fillingDirection="Right" fillColor="green"
+									height="20" fillingType="Linear" />
+							</si:ShapeGroup>
+						</si:StatusIndicator>
+					</m:FlexBox>
+				</layout:VerticalLayout>
+			</m:FlexBox>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection id="_IDGenObjectPageSection1" titleUppercase="false"
+				title="Section 1">
+				<customData>
+					<core:CustomData key="Address"></core:CustomData>
+				</customData>
+				<ObjectPageSubSection id="_IDGenObjectPageSubSection1" title="İ"
+					titleUppercase="false">
+					<blocks>
+						<blockcolor:Address id="bbt1" />
+					</blocks>
+				</ObjectPageSubSection>
+			</ObjectPageSection>
+
+			<ObjectPageSection id="_IDGenObjectPageSection2" titleUppercase="false"
+				title="Section 2">
+				<customData>
+					<core:CustomData key="CustomerTeam"></core:CustomData>
+				</customData>
+				<ObjectPageSubSection id="_IDGenObjectPageSubSection2" title="Müşteri Ekibi"
+					titleUppercase="false">
+					<blocks>
+						<blockcolor:CustomerTeam id="bbt2" />
+					</blocks>
+				</ObjectPageSubSection>
+			</ObjectPageSection>
+
+			<ObjectPageSection id="_IDGenObjectPageSection3" titleUppercase="false"
+				title="Section 3">
+				<customData>
+					<core:CustomData key="Activities"></core:CustomData>
+				</customData>
+				<ObjectPageSubSection id="_IDGenObjectPageSubSection3" title="Aktiviteler"
+					titleUppercase="false">
+					<blocks>
+						<blockcolor:Activities id="bbt3" />
+					</blocks>
+				</ObjectPageSubSection>
+			</ObjectPageSection>
+
+			<ObjectPageSection id="_IDGenObjectPageSection4" titleUppercase="false"
+				title="Section 2">
+				<customData>
+					<core:CustomData key="Opportunity"></core:CustomData>
+				</customData>
+				<ObjectPageSubSection id="_IDGenObjectPageSubSection4" title="Fırsatlar"
+					titleUppercase="false">
+					<blocks>
+						<blockcolor:Opportunity id="bbt4" />
+					</blocks>
+				</ObjectPageSubSection>
+			</ObjectPageSection>
+
+			<ObjectPageSection id="_IDGenObjectPageSection5" titleUppercase="false"
+				title="Section 2">
+				<customData>
+					<core:CustomData key="Offers"></core:CustomData>
+				</customData>
+				<ObjectPageSubSection id="_IDGenObjectPageSubSection5" title="Teklifler"
+					titleUppercase="false">
+					<blocks>
+						<blockcolor:Offers id="bbt5" />
+					</blocks>
+				</ObjectPageSubSection>
+
+
+			</ObjectPageSection>
+
+
+	   <ObjectPageSection id="_IDGenObjectPageSection6" titleUppercase="false"
+			title="Section 2">
+			<customData>
+				<core:CustomData key="Competitors"></core:CustomData>
+			</customData>
+			<ObjectPageSubSection id="_IDGenObjectPageSubSection6" title="Rakipler"
+				titleUppercase="false">
+				<blocks>
+					<blockcolor:Competitors id="bbt6" />
+				</blocks>
+			</ObjectPageSubSection>
+
+
+		</ObjectPageSection>
+
+
+		<ObjectPageSection id="_IDGenObjectPageSection7" titleUppercase="false"
+		title="Section 2">
+		<customData>
+			<core:CustomData key="Competitors"></core:CustomData>
+		</customData>
+		<ObjectPageSubSection id="_IDGenObjectPageSubSection7" title="Grup Şirketler"
+			titleUppercase="false">
+			<blocks>
+				<blockcolor:GroupCompany id="bbt7" />
+			</blocks>
+		</ObjectPageSubSection>
+
+
+	</ObjectPageSection>
+
+
+
+	<ObjectPageSection id="_IDGenObjectPageSection8" titleUppercase="false"
+	title="Section 2">
+	<customData>
+		<core:CustomData key="Offers"></core:CustomData>
+	</customData>
+	<ObjectPageSubSection id="_IDGenObjectPageSubSection8" title="Bağlı Olduğu Kişiler"
+		titleUppercase="false">
+		<blocks>
+			<blockcolor:Contacts id="bbt8" />
+		</blocks>
+	</ObjectPageSubSection>
+
+
+</ObjectPageSection>
+
+		</sections>
+
+	</ObjectPageLayout>
+</mvc:View>

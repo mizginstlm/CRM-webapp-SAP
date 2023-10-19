@@ -1,0 +1,190 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:calendar="sap.ui.unified.calendar"
+    xmlns:cards="sap.f.cards"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    id="sap-ui-bootstrap"
+    xmlns:semantic="sap.f.semantic"
+    controllerName="mozos.customername.projectname.controller.Activities"
+    xmlns:t="sap.ui.table"
+>
+<Panel id="_IDGenPanel" width="auto" busy="{main>/busy}">
+
+    <VBox id="helpcommission" class="sapUiSmallMargin">
+        <Panel id="_IDGenPanel1" headerText="Aktiviteler">
+            <f:Form id="FormDisplay480_12120Dual1" editable="false">
+                <f:layout>
+                    <f:ResponsiveGridLayout id="grid1" labelSpanXL="4" labelSpanL="4"
+                        labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                        emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+                        columnsM="3" singleContainerFullSize="false" />
+                </f:layout>
+
+
+                <f:formContainers>
+                    <f:FormContainer id="_IDGenFormContainer1" title="">
+                        <f:FormElement id="_IDGenFormElement2" label="Aktivite Türü">
+                            <ComboBox id="activity"
+                                items="{main>/showActivity}"
+                                selectedKey="{main>/ActivitiesInput/activity}"
+                                change="onActivityChange">
+                                <core:Item id="activityItem" key="{main>key}" text="{main>value}" />
+                            </ComboBox>
+                        </f:FormElement>
+                    </f:FormContainer>
+                </f:formContainers>
+
+                <f:formContainers>
+                    <f:FormContainer id="_IDGenFormContainer8" title="">
+                        <f:FormElement id="_IDGenFormElement9" label="Başlangıç Tarihi">
+                            <DatePicker id="dailydate" displayFormat="dd.MM.yyyy"
+                                change="onDateRangeChange" value="{main>/ActivitiesInput/dailydate}"
+                                valueFormat="yyyyMMdd" />
+                        </f:FormElement>
+                    </f:FormContainer>
+                </f:formContainers>
+
+                <f:formContainers>
+                    <f:FormContainer id="_IDGenFormContainer2" title="">
+                        <f:FormElement id="_IDGenFormElement3" label="Son Tarih">
+                            <DatePicker id="lastdate"
+                                change="onDateRangeChange" value="{main>/ActivitiesInput/lastdate}"
+                                displayFormat="dd.MM.yyyy" valueFormat="yyyyMMdd" />
+                        </f:FormElement>
+                    </f:FormContainer>
+                </f:formContainers>
+
+                <f:formContainers>
+                    <f:FormContainer id="_IDGenFormContainer3" title="">
+                        <f:FormElement id="_IDGenFormElement4" label="Sorumlu">
+                            <Input id="responsible" value="{main>/ActivitiesInput/responsible}" />
+                        </f:FormElement>
+                    </f:FormContainer>
+                </f:formContainers>
+
+                <f:formContainers>
+                    <f:FormContainer id="_IDGenFormContainer4" title="">
+                        <f:FormElement id="_IDGenFormElement5" label="Sorumlu Tel">
+                            <Input id="rphone"  type="Number" value="{main>/ActivitiesInput/rphone}" />
+                        </f:FormElement>
+                    </f:FormContainer>
+                </f:formContainers>
+
+                <f:formContainers>
+                    <f:FormContainer id="_IDGenFormContainer5" title="">
+                        <f:FormElement id="_IDGenFormElement6" label="Email">
+                            <Input id="rmail" type="Email" value="{main>/ActivitiesInput/rmail}" />
+                        </f:FormElement>
+                    </f:FormContainer>
+                </f:formContainers>
+
+                <f:formContainers>
+                    <f:FormContainer id="_IDGenFormContainer6" title="">
+                        <f:FormElement id="_IDGenFormElement7" label="Açıklama">
+                            <Input id="zexplain" value="{main>/ActivitiesInput/zexplain}" />
+                        </f:FormElement>
+                    </f:FormContainer>
+                </f:formContainers>
+
+                <f:formContainers>
+                    <f:FormContainer id="_IDGenFormContainer7" title="">
+                        <f:FormElement id="_IDGenFormElement8" label="Durum">
+                            <ComboBox id="status" width="100%"
+                                items="{main>/activityContent}"
+                                selectedKey="{main>/ActivitiesInput/statu}"
+                                change="onActivityStatusChange">
+                                <core:Item id="statusItem" key="{main>key}"
+                                    text="{main>value}" />
+                            </ComboBox>
+                        </f:FormElement>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+
+            <OverflowToolbar id="otbFooter">
+                <Text id="_IDGenText1" text="{main>/infoText}" />
+                <ToolbarSpacer id="_IDGenToolbarSpacer2" />
+                <Button id="_IDGenButton2" type="Default" 
+                text="{= ${main>/ActivitiesInput/guid} ? ${i18n>Güncelle} : ${i18n>Kaydet}}"
+
+                    visible="{main>/approvebutton}"
+                    ariaHasPopup="Dialog" press="sendActivityApprove">
+                    <layoutData>
+                        <OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData1"
+                            priority="NeverOverflow" />
+                    </layoutData>
+                </Button>
+            </OverflowToolbar>
+        </Panel>
+        <Table class="showList" id="showList"
+            mode="SingleSelectMaster"
+            busy="{main>/busy}"
+            selectionChange="handleSelectionChange"
+            items="{
+            path: 'main>/showActivityData'}"
+            itemPress=".onDetailPress($event)"
+            growing="true" busyIndicatorDelay="0" width="100%"
+        >
+            <headerToolbar />
+            <columns>
+                <Column id="_IDGenColumn1" vAlign="Middle" hAlign="Center" width="6rem">
+                    <Text id="_IDGenText2" class="sapThemeFont" text="Aktivite Türü" />
+                </Column>
+                <Column id="_IDGenColumn2" vAlign="Middle" hAlign="Center" width="6rem">
+                    <Text id="_IDGenText3" class="sapThemeFont" text="Bailangıç" />
+                </Column>
+                <Column id="_IDGenColumn3" vAlign="Middle" hAlign="Center" width="6rem">
+                    <Text id="_IDGenText4" class="sapThemeFont" text="Bitiş" />
+                </Column>
+                <Column id="_IDGenColumn4" vAlign="Middle" hAlign="Center" width="6rem">
+                    <Text id="_IDGenText5" class="sapThemeFont" text="Sorumlu" />
+                </Column>
+                <Column id="_IDGenColumn5" vAlign="Middle" hAlign="Center" width="6rem">
+                    <Text id="_IDGenText6" class="sapThemeFont" text="Telefon" />
+                </Column>
+                <Column id="_IDGenColumn6" vAlign="Middle" hAlign="Center" width="6rem">
+                    <Text id="_IDGenText7" class="sapThemeFont" text="Mail" />
+                </Column>
+                <Column id="_IDGenColumn7" vAlign="Middle" hAlign="Center" width="6rem">
+                    <Text id="_IDGenText8" class="sapThemeFont" text="Açıklama" />
+                </Column>
+                <Column id="_IDGenColumn8" vAlign="Middle" hAlign="Center" width="6rem">
+                    <Text id="_IDGenText9" class="sapThemeFont" text="Durum" />
+                </Column>
+                <Column id="_IDGenColumnDelete" vAlign="Middle" hAlign="Center" width="3rem">
+                    <Text id="_IDGenTextDelete" class="sapThemeFont" text="" />
+                </Column>
+                <Column id="_IDGenColumnEdit" vAlign="Middle" hAlign="Center" width="3rem">
+                    <Text id="_IDGenTextEdit" class="sapThemeFont"  />
+                </Column>
+                <!-- <Button id="_IDGenButton3" icon="sap-icon://delete"
+                press="onPressDelete(${main>})" /> -->
+            </columns>
+
+            <items>
+                <ColumnListItem vAlign="Middle" id="entitlementColumnListItem">
+                    <cells>
+                        <ObjectAttribute id="_IDGenObjectAttribute1" text="{main>actext}" />
+                        <ObjectAttribute id="_IDGenObjectAttribute2" text="{main>dailydate}" />
+                        <ObjectAttribute id="_IDGenObjectAttribute3" text="{main>lastdate}" />
+                        <ObjectAttribute id="_IDGenObjectAttribute4" text="{main>responsible}" />
+                        <ObjectAttribute id="_IDGenObjectAttribute5" text="{main>rphone}" />
+                        <ObjectAttribute id="_IDGenObjectAttribute6" text="{main>rmail}" />
+                        <ObjectAttribute id="_IDGenObjectAttribute7" text="{main>zexplain}" />
+                        <ObjectAttribute id="_IDGenObjectAttribute8" text="{main>sttext}" />
+                        <Button id="_IDGenButton" icon="sap-icon://delete" press="onDeleteRowPress(${main>})" />
+                        <Button id="_IDGenButton3" icon="sap-icon://edit" press="onEditRowPress(${main>})" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+
+
+    </VBox>
+</Panel>
+</mvc:View>

@@ -1,0 +1,170 @@
+{
+  "_version": "1.28.0",
+  "sap.app": {
+    "id": "mozos.customername.projectname",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.9.0",
+      "toolsId": ""
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "config": {
+			"sample": {
+				"stretch": true,
+				"files": [
+					"./SharedBlocks/BlockBlue.view.xml",
+          "./SharedBlocks/Activities.view.xml",
+					"manifest.json"
+				]
+			}
+		},
+    "dependencies": {
+      "minUI5Version": "1.84.32",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {},
+       
+				"sap.uxap": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "mozos.customername.projectname.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "main": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "preload": false
+      }
+    },
+    "resourceRoots": {
+			"sap.uxap.sample.SharedBlocks": "./SharedBlocks"},
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "mozos.customername.projectname.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteMain",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMain"
+          ]
+        },
+        {
+          "name": "RouteEdit",
+          "pattern": "edit/{awref}",
+          "target": [
+            "TargetMain"
+          ]
+        },
+        {
+          "name": "Demands",
+          "pattern": "Demands",
+          "target": ["Demands"]
+      },
+      {
+        "name": "DetailedCustomer",
+        "pattern": "DetailedCustomer/{awref}",
+        "target": [
+          "TargetDetailedCustomer"
+        ]
+      }
+      ],
+      "targets": {
+        "TargetMain": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Main",
+          "viewName": "Main",
+          "viewLevel": 1
+        },
+        "Demands": {
+          "viewName": "Demands",
+          "viewLevel": 2,
+          "viewId": "Demands"
+      },
+      "TargetDetailedCustomer":{
+        "viewName": "DetailedCustomer",
+        "viewLevel": 3,
+        "viewId": "DetailedCustomer"
+    }
+      }
+    },
+    "rootView": {
+      "viewName": "mozos.customername.projectname.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

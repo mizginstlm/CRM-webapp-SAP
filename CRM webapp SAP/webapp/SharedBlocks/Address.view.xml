@@ -1,0 +1,154 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="mozos.customername.projectname.controller.Address"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:m="sap.m"
+	xmlns:t="sap.ui.table"
+	displayBlock="true"
+	xmlns:calendar="sap.ui.unified.calendar"
+	xmlns:cards="sap.f.cards"
+>
+
+	<Panel id="_IDGenPanel" width="auto" busy="{main>/busy}">
+		<VBox id="AdmitChapter" class="sapUiSmallMargin">
+
+			<Panel id="_IDGenPanel1" expandable="{main>/paymentPanelVisible}"
+				headerText="Adres ">
+
+				<f:Form id="myform" editable="true">
+					<f:title>
+						<!-- <core:Title id="payment" text="{i18n>paymentinfo}" /> -->
+					</f:title>
+					<f:layout>
+						<f:ResponsiveGridLayout id="grid1" labelSpanXL="12" labelSpanL="12"
+							labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+							emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+							columnsM="3" singleContainerFullSize="false" />
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer id="chapter3">
+							<f:FormElement id="extraPay1" label="Adres Açıklaması 1">
+								<Input id="adress1" value="{main>/AddressInput/adress1}" />
+							</f:FormElement>
+						</f:FormContainer>
+					</f:formContainers>
+					<f:formContainers>
+						<f:FormContainer id="chapter">
+							<f:FormElement id="creditBank" label="Adres Açıklaması 2">
+								<Input id="adress2" value="{main>/AddressInput/adress2}" />
+							</f:FormElement>
+						</f:FormContainer>
+					</f:formContainers>
+					<f:formContainers>
+						<f:FormContainer id="_IDGenFormContainer1">
+							<f:FormElement id="country" label="{i18n>Ülke/Bölge}">
+								<f:fields>
+									<Select id="countrycode" width="100%"
+										items="{main>/showCountry}"
+										selectedKey="{main>/AddressInput/countrykey}">
+										<core:Item id="_IDGenItem1" key="{main>key}"
+											text="{main>value}" />
+									</Select>
+								</f:fields>
+							</f:FormElement>
+						</f:FormContainer>
+					</f:formContainers>
+					<f:formContainers>
+						<f:FormContainer id="chapter4">
+							<f:FormElement id="peopleNumber" label="Şehir">
+								<Input id="city" value="{main>/AddressInput/city}" />
+							</f:FormElement>
+						</f:FormContainer>
+					</f:formContainers>
+					<f:formContainers>
+						<f:FormContainer id="chapte">
+							<f:FormElement id="monthPaid" label="İlçe">
+								<Input id="village" value="{main>/AddressInput/village}" />
+							</f:FormElement>
+						</f:FormContainer>
+					</f:formContainers>
+					<f:formContainers>
+						<f:FormContainer id="chapt">
+							<f:FormElement id="_IDGenFormElement1" label="Posta Kodu">
+								<Input id="postcode"  type="Number" value="{main>/AddressInput/postcode}" />
+							</f:FormElement>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+
+
+				<OverflowToolbar id="otbFooter">
+					<Text id="_IDGenText1" text="{main>/infoText}" />
+					<ToolbarSpacer />
+					<Button id="_IDGenButton1" type="Default"
+						text="{= ${main>/AddressInput/guid} ? ${i18n>Güncelle} : ${i18n>Kaydet}}"
+						ariaHasPopup="Dialog" press="submitAddress">
+						<layoutData>
+							<OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData1"
+								priority="NeverOverflow" />
+						</layoutData>
+					</Button>
+				</OverflowToolbar>
+
+			</Panel>
+
+			<Table class="showList" id="showList"
+				mode="SingleSelectMaster"
+				busy="{main>/busy}"
+				selectionChange="handleSelectionChange"
+				items="{ path: 'main>/showAddressData'}"
+				growing="true"
+				busyIndicatorDelay="0"
+				width="auto"
+			>
+				<headerToolbar />
+				<columns>
+					<Column id="_IDGenColumn2" vAlign="Middle" hAlign="Center" width="6rem">
+						<Text id="_IDGenText2" class="sapThemeFont" text="Adres açıklamsı" />
+					</Column>
+					<Column id="_IDGenColumn1" vAlign="Middle" hAlign="Center" width="6rem">
+						<Text id="_IDGenText" class="sapThemeFont" text="Adres açıklamsı" />
+					</Column>
+					<Column id="_IDGenColumn5" vAlign="Middle" hAlign="Center" width="6rem">
+						<Text id="_IDGenText5" class="sapThemeFont" text="Ülke" />
+					</Column>
+					<Column id="_IDGenColumn8" vAlign="Middle" hAlign="Center" width="6rem">
+						<Text id="_IDGenText8" class="sapThemeFont" text="Şehir" />
+					</Column>
+					<Column id="_IDGenColumn3" vAlign="Middle" hAlign="Center" width="6rem">
+						<Text id="_IDGenText3" class="sapThemeFont" text="İlçe" />
+					</Column>
+					<Column id="_IDGenColumn4" vAlign="Middle" hAlign="Center" width="6rem">
+						<Text id="_IDGenText4" class="sapThemeFont" text="Posta Kodu" />
+					</Column>
+					<Column id="_IDGenColumnDelete" vAlign="Middle" hAlign="Center" width="3rem">
+						<Text id="_IDGenTextDelete" class="sapThemeFont" />
+					</Column>
+					<Column id="_IDGenColumnEdit" vAlign="Middle" hAlign="Center" width="3rem">
+						<Text id="_IDGenTextEdit" class="sapThemeFont" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle" id="entitlementColumnListItem">
+						<cells>
+							<ObjectAttribute id="_IDGenObjectAttribute4" text="{main>adress1}" />
+							<ObjectAttribute id="_IDGenObjectAttribute1" text="{main>adress2}" />
+							<ObjectAttribute id="_IDGenObjectAttribute7" text="{main>countrytxt}" />
+							<ObjectAttribute id="_IDGenObjectAttribute3" text="{main>city}" />
+							<ObjectAttribute id="_IDGenObjectAttribute5" text="{main>village}" />
+								<ObjectAttribute id="_IDGenObjectAttribute6" text="{main>postcode}" />
+
+							<Button class="sapUiTinyMargin" id="_IDGenButton2" icon="sap-icon://delete" press="onDeleteRowPress(${main>})" />
+							<Button id="_IDGenButton3" icon="sap-icon://edit" press="onEditRowPress(${main>})" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</VBox>
+	</Panel>
+</mvc:View>

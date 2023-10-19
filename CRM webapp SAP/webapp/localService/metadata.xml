@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="" xmlns:m="h" xmlns:sap="">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="" xml:lang="en" sap:schema-version="1" xmlns="">
+           
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

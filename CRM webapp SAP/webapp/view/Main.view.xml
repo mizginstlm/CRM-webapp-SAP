@@ -1,0 +1,184 @@
+<mvc:View controllerName="mozos.customername.projectname.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:calendar="sap.ui.unified.calendar" xmlns:cards="sap.f.cards"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    id="sap-ui-bootstrap"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:t="sap.ui.table">
+
+    <Page id="page" title="" busy="{main>/busy}">
+        <Panel id="_IDGenPanel1" width="auto">
+            <content>
+                <f:Form id="_IDGenForm1" editable="true">
+                    <f:layout>
+                        <f:ResponsiveGridLayout id="grid1" labelSpanXL="4" labelSpanL="4"
+                            labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                            emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3"
+                            columnsM="3" singleContainerFullSize="false" />
+                    </f:layout>
+
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer9">
+                            <f:FormElement id="perName" label="{i18n>Firma}">
+                                <f:fields>
+                                    <Input required="true" id="perName1" value="{main>/MainInput/namesurname}"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:FormContainer>
+                    </f:formContainers>
+
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer1">
+
+                            <f:FormElement id="rol" label="{i18n>Rol}">
+                                <f:fields>
+                                    <Input required="true" id="perRol" value="{main>/MainInput/rol}"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:FormContainer>
+                    </f:formContainers>
+
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer2">
+                            <f:FormElement id="kaynak" label="{i18n>Kaynak}">
+                                <f:fields>
+                                    <Input required="true" id="perKaynak" value="{main>/MainInput/source}"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:FormContainer>
+                    </f:formContainers>
+
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer3">
+                            <f:FormElement id="unit" label="{i18n>Müşteri Tipi}">
+                                <f:fields>
+                                    <ComboBox required="true" id="custType" items="{main>/custTypeData}"
+                                    selectedKey="{main>/MainInput/custtype}">
+                                    <core:Item id="unit2" key="{main>key}"
+                                        text="{main>value}" />
+                                    </ComboBox>
+                                </f:fields>
+                            </f:FormElement>
+                        </f:FormContainer>
+                    </f:formContainers>
+
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer4">
+                            <f:FormElement id="Tel" label="{i18n>Telefon}">
+                                <f:fields>
+                                    <Input required="true" type="Number" id="Tel1" value="{main>/MainInput/phone}"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:FormContainer>
+                    </f:formContainers>
+
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer6">
+                            <f:FormElement id="sick" label="{i18n>Eposta}">
+                                <f:fields>
+                                    <Input required="true" id="eposta"  type="Email" value="{main>/MainInput/mail}"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:FormContainer>
+                    </f:formContainers>
+
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer7">
+                            <f:FormElement id="perNo1" label="{i18n>Sorumlu}">
+                                <f:fields>
+                                    <Input required="true" id="sorumlu"  value="{main>/MainInput/responsible}"
+                                        type="Text"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:FormContainer>
+                    </f:formContainers>
+
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer10">
+                            <f:FormElement id="_IDGenFormElement5" label="{i18n>  Sektör}">
+                                <f:fields>
+                                    <ComboBox required="true" id="sektor" width="100%"
+                                        items="{main>/showSektor}"
+                                        selectedKey="{main>/MainInput/sektor}">
+                                        <core:Item id="_IDGenItem" key="{main>key}"
+                                            text="{main>value}" />
+                                    </ComboBox>
+                                </f:fields>
+                            </f:FormElement>
+                        </f:FormContainer>
+                    </f:formContainers>
+
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer11">
+                            <f:FormElement id="altsektor" label="{i18n> Alt Sektör}">
+                                <f:fields>
+                                    <ComboBox required="true" id="subsektor" width="100%"
+                                        items="{main>/showSubSektor}"
+                                        selectedKey="{main>/MainInput/subsektor}">
+                                        <core:Item id="_IDGenItem1" key="{main>key}"
+                                            text="{main>value}" />
+                                    </ComboBox>
+                                </f:fields>
+                            </f:FormElement>
+                        </f:FormContainer>
+                    </f:formContainers>
+
+
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer8">
+                            <f:FormElement id="_IDGenFormElement2" label="{i18n>Not}">
+                                <f:fields>
+                                    <TextArea id="_IDGenTextArea1" growing="true"  value="{main>/MainInput/text}"></TextArea>
+                                </f:fields>
+                            </f:FormElement>
+                        </f:FormContainer>
+                    </f:formContainers>
+
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer12">
+                            <f:FormElement id="_IDGenFormElement4" label="{i18n>Kamu}">
+                                <RadioButtonGroup columns="2" id="_IDGenRadioButtonGroup2" selectedIndex="{main>/MainInput/is_kamu}"
+                                    valueState="Information">
+                                    <RadioButton id="yes" text="{i18n>Evet}"
+                                        selected="true" />
+                                    <RadioButton id="no" text="{i18n>Hayır}" />
+                                </RadioButtonGroup>
+                            </f:FormElement>
+                        </f:FormContainer>
+                    </f:formContainers>
+                </f:Form>
+            </content>
+        </Panel>
+        <footer>
+            <OverflowToolbar id="otbFooter">
+                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                <Button id="_IDGenButton1" type="Attention" text="{= ${main>/Mode} === 'Create' ? ${i18n>Kaydet ve Aç} : ${i18n>Güncelle    }}"
+                    visible="{main>/visibleNewButton}" press="checkRequiredInputs">
+                    <layoutData>
+                        <OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData1"
+                            priority="NeverOverflow" />
+                    </layoutData>
+                </Button>
+                <Button id="_IDGenButton2" type="Ghost" text="{i18n>Listeyi Göster}"
+                    visible="{main>/visibleNewButton}" press="showList">
+                    <layoutData>
+                        <OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData2"
+                            priority="NeverOverflow" />
+                    </layoutData>
+                </Button>
+            </OverflowToolbar>
+        </footer>
+
+    </Page>
+
+</mvc:View>
